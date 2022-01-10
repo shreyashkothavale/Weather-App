@@ -31,8 +31,8 @@ const months = [
   "Dec",
 ];
 
-//Api fetch from on cdnjs.com/moment.js
-const API_KEY = SECRET_API_KEY;
+//API FETCH FROM openwearthermap.org
+const API_KEY = API_SECRET_KEY;
 setInterval(() => {
   const time = new Date();
   const month = time.getMonth();
