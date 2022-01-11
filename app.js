@@ -32,7 +32,7 @@ const months = [
 ];
 
 //API FETCH FROM openwearthermap.org
-const API_KEY = API_SECRET_KEY;
+const API_KEY = process.env.API_KEY;
 setInterval(() => {
   const time = new Date();
   const month = time.getMonth();
@@ -95,9 +95,11 @@ function showWeatherData(data) {
   data.daily.forEach((day, idx) => {
     if (idx == 0) {
       currentTemp.innerHTML = `
-      <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png" alt="weathericon" class="w-icon" />
+      <img src="http://openweathermap.org/img/wn/${
+        day.weather[0].icon
+      }@4x.png" alt="weathericon" class="w-icon" />
       <div class="other">
-          <div class="day">Monday</div>
+          <div class="day">${window.moment(day.dt * 1000).format("ddd")}</div>
           <div class="temp">Night :${day.temp.night}°C</div>
           <div class="temp">Day : ${day.temp.day}°C</div>
       </div>`;
